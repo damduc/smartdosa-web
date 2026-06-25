@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>스마트도사 — 명리사의 모바일 상담 운영 도구</title>
+<meta name="description" content="명식으로 고객을 찾고 상담을 기록·검색하는 명리사 상담 운영 도구. 통합검색·만세력·가족 합충 비교·PDF 명식지. 고객 30명까지 모든 기능 무료, 투명한 만 원 구독." />
+<meta name="theme-color" content="#FBEFDC" />
+<link rel="canonical" href="https://smartdosa.com/" />
+<link rel="icon" href="assets/icon.png" />
+<link rel="apple-touch-icon" href="assets/icon.png" />
+
+<!-- Open Graph / 소셜 공유 -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="스마트도사" />
+<meta property="og:title" content="스마트도사 — 명리사의 모바일 상담 운영 도구" />
+<meta property="og:description" content="명식으로 고객을 찾고 상담을 기록·검색. 통합검색·만세력·가족 합충 비교. 고객 30명까지 모든 기능 무료." />
+<meta property="og:url" content="https://smartdosa.com/" />
+<meta property="og:image" content="https://smartdosa.com/assets/og-image.png" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="스마트도사 — 명리사의 모바일 상담 운영 도구" />
+<meta name="twitter:description" content="명식으로 고객을 찾고 상담을 기록·검색. 고객 30명까지 모든 기능 무료." />
+<meta name="twitter:image" content="https://smartdosa.com/assets/og-image.png" />
+
+<style>
+  :root{
+    --cream:#FBEFDC; --cream-2:#FDF7EC; --paper:#ffffff;
+    --ink:#241E1A; --ink-soft:#5C5249; --ink-faint:#6E6357;
+    --accent:#B5532A; --accent-deep:#8E3E1E; --gold:#C29A45;
+    --line:rgba(36,30,26,.12); --line-soft:rgba(36,30,26,.07);
+    --shadow:0 10px 30px rgba(36,30,26,.10); --shadow-lg:0 24px 60px rgba(36,30,26,.16);
+    --radius:18px; --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  #top,#who,#features,#pricing,#download{scroll-margin-top:80px}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition-duration:.001ms!important;animation-duration:.001ms!important}}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic","Noto Sans KR",sans-serif;
+    color:var(--ink); background:var(--cream-2); line-height:1.6;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    word-break:keep-all; overflow-wrap:anywhere;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .eyebrow{font-size:.82rem;font-weight:700;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+  section{padding:74px 0}
+  h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em;line-height:1.25}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:rgba(253,247,236,.82);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line-soft)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.01em}
+  .brand img{width:30px;height:30px;border-radius:8px;box-shadow:0 2px 6px rgba(36,30,26,.18)}
+  .nav-links{display:flex;align-items:center;gap:26px}
+  .nav-links a{font-size:.94rem;color:var(--ink-soft);font-weight:600}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;border-radius:12px;padding:11px 18px;font-size:.95rem;transition:transform .12s ease,box-shadow .12s ease,background .12s ease;white-space:nowrap}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 16px rgba(181,83,42,.28)}
+  .btn-primary:hover{background:var(--accent-deep);transform:translateY(-1px)}
+  .btn-sm{padding:9px 15px;font-size:.9rem}
+  @media(max-width:720px){.nav-links a:not(.btn){display:none}}
+
+  /* Hero */
+  .hero{background:linear-gradient(180deg,var(--cream) 0%,var(--cream-2) 100%);padding-top:64px}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(181,83,42,.10);color:var(--accent-deep);border:1px solid rgba(181,83,42,.22);border-radius:999px;padding:6px 13px;font-size:.82rem;font-weight:700}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(181,83,42,.18)}
+  .hero h1{font-size:clamp(2rem,5.2vw,3.15rem);font-weight:850;letter-spacing:-.03em;line-height:1.15;margin:18px 0 16px}
+  .hero h1 .hl{color:var(--accent)}
+  .hero p.sub{font-size:1.12rem;color:var(--ink-soft);max-width:34ch}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 14px}
+  .store-btn{display:inline-flex;align-items:center;gap:11px;background:var(--ink);color:#fff;border-radius:14px;padding:12px 18px;transition:transform .12s ease,box-shadow .12s ease}
+  .store-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .store-btn svg{width:24px;height:24px;flex:none}
+  .store-btn .st{display:flex;flex-direction:column;line-height:1.12}
+  .store-btn .st small{font-size:.68rem;opacity:.78;font-weight:500}
+  .store-btn .st strong{font-size:1.02rem;font-weight:700}
+  .hero .note{font-size:.92rem;color:var(--ink-faint);font-weight:600}
+  .hero-visual{display:flex;justify-content:center}
+  .app-tile{position:relative;width:min(300px,72vw)}
+  .app-tile .glow{position:absolute;inset:-8% -8% -14%;background:radial-gradient(60% 55% at 50% 38%,rgba(194,154,69,.35),transparent 70%);filter:blur(6px);z-index:0}
+  .app-tile img{position:relative;z-index:1;width:100%;border-radius:26%;box-shadow:var(--shadow-lg);border:1px solid rgba(36,30,26,.06)}
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:34px;text-align:center}
+    .hero p.sub{margin-inline:auto}
+    .cta-row{justify-content:center}
+    .hero-visual{order:-1}
+    .app-tile{width:min(220px,52vw)}
+  }
+
+  /* Trust strip */
+  .trust{background:var(--ink);color:#fff;padding:20px 0}
+  .trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px}
+  .trust-item{display:flex;align-items:center;gap:9px;font-size:.92rem;font-weight:600;opacity:.94}
+  .trust-item svg{width:18px;height:18px;color:var(--gold);flex:none}
+
+  /* Generic section heads */
+  .sec-head{max-width:62ch;margin-bottom:38px}
+  .sec-head h2{margin-top:10px}
+
+  /* Audience */
+  .aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .aud-card{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--radius);padding:24px 22px;box-shadow:var(--shadow)}
+  .aud-card .n{font-size:.8rem;font-weight:800;color:var(--accent);letter-spacing:.04em}
+  .aud-card p{margin-top:10px;color:var(--ink-soft);font-size:1rem}
+  @media(max-width:780px){.aud-grid{grid-template-columns:1fr}}
+
+  /* Features */
+  #features{background:linear-gradient(180deg,var(--cream-2),#fff)}
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .feat{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--radius);padding:26px 22px;box-shadow:var(--shadow);transition:transform .14s ease,box-shadow .14s ease}
+  .feat:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+  .feat .ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(181,83,42,.10);color:var(--accent);margin-bottom:15px}
+  .feat .ic svg{width:24px;height:24px}
+  .feat h3{font-size:1.12rem;font-weight:800;letter-spacing:-.01em}
+  .feat p{margin-top:8px;color:var(--ink-soft);font-size:.97rem}
+  @media(max-width:880px){.feat-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.feat-grid{grid-template-columns:1fr}}
+
+  /* Pricing */
+  .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:760px;margin:0 auto}
+  .plan{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:30px 28px;position:relative}
+  .plan.pro{border:1.5px solid var(--accent);box-shadow:0 16px 40px rgba(181,83,42,.16)}
+  .plan .tag{font-size:.82rem;font-weight:800;letter-spacing:.04em;color:var(--ink-faint)}
+  .plan.pro .tag{color:var(--accent)}
+  .plan .amt{font-size:2rem;font-weight:850;letter-spacing:-.02em;margin:10px 0 4px}
+  .plan .amt small{font-size:.95rem;font-weight:600;color:var(--ink-faint)}
+  .plan .sub{font-size:.92rem;color:var(--ink-soft)}
+  .plan ul{list-style:none;margin:18px 0 0;display:flex;flex-direction:column;gap:10px}
+  .plan li{display:flex;gap:10px;align-items:flex-start;font-size:.96rem;color:var(--ink-soft)}
+  .plan li svg{width:18px;height:18px;color:var(--accent);flex:none;margin-top:3px}
+  .plan .yr{display:inline-block;margin-top:6px;font-size:.86rem;font-weight:700;color:var(--accent-deep);background:rgba(181,83,42,.10);padding:3px 10px;border-radius:999px}
+  .fineprint{max-width:680px;margin:22px auto 0;text-align:center;color:var(--ink-faint);font-size:.86rem}
+  @media(max-width:680px){.price-grid{grid-template-columns:1fr}}
+
+  /* Notice */
+  .notice{background:var(--cream)}
+  .notice-card{max-width:760px;margin:0 auto;text-align:center}
+  .notice-card .ic{width:44px;height:44px;border-radius:50%;background:rgba(36,30,26,.06);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--ink-soft)}
+  .notice-card p{color:var(--ink-soft);font-size:1.02rem;max-width:54ch;margin:0 auto}
+
+  /* Final CTA */
+  .final{background:var(--ink);color:#fff;text-align:center}
+  .final h2{color:#fff}
+  .final p{color:rgba(255,255,255,.78);margin-top:12px;font-size:1.05rem}
+  .final .cta-row{justify-content:center;margin-top:28px}
+  .final .store-btn{background:#fff;color:var(--ink)}
+  .final .note{color:rgba(255,255,255,.6);font-size:.9rem;font-weight:600;margin-top:6px}
+
+  /* Footer */
+  footer{background:#1B1714;color:rgba(255,255,255,.72);padding:46px 0 40px;font-size:.92rem}
+  .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start}
+  .foot-brand{display:flex;align-items:center;gap:11px;color:#fff;font-weight:800}
+  .foot-brand img{width:34px;height:34px;border-radius:9px}
+  .foot-links{display:flex;flex-wrap:wrap;gap:18px}
+  .foot-links a{color:rgba(255,255,255,.78)}
+  .foot-links a:hover{color:#fff}
+  .foot-bottom{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;color:rgba(255,255,255,.55);font-size:.86rem}
+  .foot-bottom a{color:rgba(255,255,255,.72)}
+  footer .tm{margin-top:14px;color:rgba(255,255,255,.6);font-size:.78rem;line-height:1.5}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img src="assets/icon.png" alt="스마트도사 아이콘" />스마트도사</a>
+    <nav class="nav-links">
+      <a href="#features">기능</a>
+      <a href="#pricing">가격</a>
+      <a href="#download" class="btn btn-primary btn-sm">다운로드</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="badge"><span class="dot"></span>정식 출시 · iOS · Android</span>
+        <h1>명리사의 모바일<br /><span class="hl">상담 운영 도구</span></h1>
+        <p class="sub">고객을 명식으로 찾고, 상담을 기록·검색하세요. 만세력 계산기를 넘어, 하루 상담 운영을 모바일에서 끝냅니다.</p>
+        <div class="cta-row">
+          <a class="store-btn" href="https://apps.apple.com/kr/app/id6761471796" target="_blank" rel="noopener" aria-label="App Store에서 스마트도사 다운로드">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.36 1.43c.05.86-.28 1.7-.86 2.32-.6.66-1.6 1.17-2.55 1.09-.07-.84.32-1.71.87-2.27.61-.63 1.66-1.12 2.54-1.14zM19.9 17.3c-.5 1.16-.74 1.67-1.39 2.7-.9 1.43-2.18 3.22-3.76 3.23-1.4.02-1.77-.92-3.67-.9-1.9.01-2.3.92-3.7.9-1.58-.01-2.79-1.62-3.7-3.05C1.2 16.5.94 11.78 2.5 9.27c1.1-1.78 2.85-2.82 4.5-2.82 1.67 0 2.72.92 4.1.92 1.34 0 2.16-.92 4.1-.92 1.47 0 3.02.8 4.13 2.18-3.63 1.99-3.04 7.18.57 8.67z"/></svg>
+            <span class="st"><small>App Store</small><strong>다운로드</strong></span>
+          </a>
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.bycode.sajuSuchep" target="_blank" rel="noopener" aria-label="Google Play에서 스마트도사 다운로드">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M3.6 2.3c-.3.3-.5.7-.5 1.3v16.8c0 .6.2 1 .5 1.3l.1.1L13 12.1v-.2L3.7 2.2z"/><path fill="#fff" d="M16.3 15.4 13 12.1v-.2l3.3-3.3.1.1 3.9 2.2c1.1.6 1.1 1.7 0 2.3z" opacity=".85"/><path fill="#fff" d="M16.4 15.5 13 12 3.6 21.7c.4.4 1 .4 1.7 0z" opacity=".7"/><path fill="#fff" d="M16.4 8.5 5.3 2.3c-.7-.4-1.3-.4-1.7 0L13 12z" opacity=".95"/></svg>
+            <span class="st"><small>Google Play</small><strong>다운로드</strong></span>
+          </a>
+        </div>
+        <p class="note">고객 30명까지 통합검색 포함 모든 기능 무료</p>
+      </div>
+      <div class="hero-visual">
+        <div class="app-tile">
+          <div class="glow"></div>
+          <img src="assets/icon.png" alt="스마트도사 앱 아이콘" width="300" height="300" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <div class="trust">
+    <div class="wrap trust-row">
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17l9-10"/></svg>오프라인 우선</span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>AES-256 클라우드 백업</span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.2c0-1 .9-1.7 2.5-1.7s2.5.7 2.5 1.6c0 2.3-5 1.2-5 3.5 0 1 .9 1.7 2.5 1.7s2.5-.7 2.5-1.6"/></svg>투명한 단일 요금</span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 4.5-3.2 7.7-8 9-4.8-1.3-8-4.5-8-9V7z"/></svg>30명까지 무료</span>
+    </div>
+  </div>
+
+  <!-- AUDIENCE -->
+  <section id="who">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">이런 분께</span>
+        <h2>종이와 엑셀을 넘어,<br />상담을 한 손에.</h2>
+      </div>
+      <div class="aud-grid">
+        <div class="aud-card"><div class="n">01</div><p>상담 고객이 늘면서 명식과 상담 이력을 종이·엑셀로 관리하기 버거운 명리사</p></div>
+        <div class="aud-card"><div class="n">02</div><p>이동 중·상담 현장에서 바로 명식을 띄우고 지난 상담을 찾아야 하는 분</p></div>
+        <div class="aud-card"><div class="n">03</div><p>가족·지인의 합충 관계를 한 화면에서 비교하고 싶은 분</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">핵심 기능</span>
+        <h2>상담 운영에 필요한 것만,<br />정확하게.</h2>
+      </div>
+      <div class="feat-grid">
+        <div class="feat">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+          <h3>통합검색</h3>
+          <p>이름·생년월일은 물론, 지난 상담 메모 속 한 단어까지 함께 찾습니다. 고객과 상담 기록을 한 번에 검색.</p>
+        </div>
+        <div class="feat">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="2.3" fill="currentColor" stroke="none"/></svg></div>
+          <h3>만세력 · 사주 분석</h3>
+          <p>정확한 절기·태양시 기반 사주 원국 계산. 시대 인식 태양시 보정(검증 모드)으로 경계 구간도 투명하게 확인.</p>
+        </div>
+        <div class="feat">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l5 5v13H6z"/><path d="M14 3v6h6M9 13h6M9 17h4"/></svg></div>
+          <h3>상담 기록</h3>
+          <p>상담 내용을 고객별로 정리해 보관. 다음 상담에서 지난 이야기를 바로 이어가세요.</p>
+        </div>
+        <div class="feat">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.5" cy="8" r="3"/><path d="M3 20c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M15 20c0-2.6 1.6-4.3 4-4.3 1 0 1.9.3 2.5.8"/></svg></div>
+          <h3>가족 그룹 · 합충 비교</h3>
+          <p>가족·지인을 묶어 관계와 합충을 한눈에 비교.</p>
+        </div>
+        <div class="feat">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M11 18.5h2"/></svg></div>
+          <h3>모바일 · 오프라인 우선</h3>
+          <p>네트워크 없이도 계산·열람. 내 기기에서 빠르게.</p>
+        </div>
+        <div class="feat">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l5 5v13H6z"/><path d="M14 3v6h6"/><path d="M12 11.5v6m0 0-2.3-2.3M12 17.5l2.3-2.3"/></svg></div>
+          <h3>PDF 명식지 출력</h3>
+          <p>상담 결과를 깔끔한 명식지로 출력·공유.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="sec-head" style="text-align:center;margin-inline:auto">
+        <span class="eyebrow">요금</span>
+        <h2>투명한 단일 요금. 숨은 과금 없음.</h2>
+      </div>
+      <div class="price-grid">
+        <div class="plan">
+          <div class="tag">무료</div>
+          <div class="amt">₩0</div>
+          <div class="sub">고객 30명까지</div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17l9-10"/></svg>통합검색 포함 모든 기능</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17l9-10"/></svg>만세력 · 상담 기록 · 합충 비교</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17l9-10"/></svg>PDF 명식지 · 클라우드 백업</li>
+          </ul>
+        </div>
+        <div class="plan pro">
+          <div class="tag">스마트도사 PRO</div>
+          <div class="amt">₩9,900<small> / 월</small></div>
+          <div class="sub">고객을 무제한으로 등록</div>
+          <span class="yr">연 79,000원 (약 33% 절약)</span>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17l9-10"/></svg>무료의 모든 기능 그대로</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17l9-10"/></svg>고객 등록 수 제한 없음</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17l9-10"/></svg>단일 요금 · 숨은 과금 없음</li>
+          </ul>
+        </div>
+      </div>
+      <p class="fineprint">구독은 App Store / Google Play 계정으로 결제되며, 기간 만료 24시간 전 자동 갱신됩니다. 갱신은 구독 관리에서 언제든 해지할 수 있습니다.</p>
+    </div>
+  </section>
+
+  <!-- NOTICE -->
+  <section class="notice">
+    <div class="wrap notice-card">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg></div>
+      <h2 style="font-size:1.25rem">안내</h2>
+      <p style="margin-top:12px">스마트도사는 명리 상담 운영을 돕는 계산·기록 도구입니다. 운세를 단정하거나 대신 결정해 주지 않으며, 모든 해석과 상담은 사용자(명리사)의 전문성에 따릅니다.</p>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final" id="download">
+    <div class="wrap">
+      <h2>지금 스마트도사로 시작하세요</h2>
+      <p>고객 30명까지 모든 기능을 무료로. 설치하고 첫 명식부터 검색까지.</p>
+      <div class="cta-row">
+        <a class="store-btn" href="https://apps.apple.com/kr/app/id6761471796" target="_blank" rel="noopener" aria-label="App Store에서 스마트도사 다운로드">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.36 1.43c.05.86-.28 1.7-.86 2.32-.6.66-1.6 1.17-2.55 1.09-.07-.84.32-1.71.87-2.27.61-.63 1.66-1.12 2.54-1.14zM19.9 17.3c-.5 1.16-.74 1.67-1.39 2.7-.9 1.43-2.18 3.22-3.76 3.23-1.4.02-1.77-.92-3.67-.9-1.9.01-2.3.92-3.7.9-1.58-.01-2.79-1.62-3.7-3.05C1.2 16.5.94 11.78 2.5 9.27c1.1-1.78 2.85-2.82 4.5-2.82 1.67 0 2.72.92 4.1.92 1.34 0 2.16-.92 4.1-.92 1.47 0 3.02.8 4.13 2.18-3.63 1.99-3.04 7.18.57 8.67z"/></svg>
+          <span class="st"><small>App Store</small><strong>다운로드</strong></span>
+        </a>
+        <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.bycode.sajuSuchep" target="_blank" rel="noopener" aria-label="Google Play에서 스마트도사 다운로드">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.6 2.3c-.3.3-.5.7-.5 1.3v16.8c0 .6.2 1 .5 1.3l.1.1L13 12.1v-.2L3.7 2.2z"/><path fill="currentColor" d="M16.3 15.4 13 12.1v-.2l3.3-3.3.1.1 3.9 2.2c1.1.6 1.1 1.7 0 2.3z" opacity=".85"/><path fill="currentColor" d="M16.4 15.5 13 12 3.6 21.7c.4.4 1 .4 1.7 0z" opacity=".7"/><path fill="currentColor" d="M16.4 8.5 5.3 2.3c-.7-.4-1.3-.4-1.7 0L13 12z" opacity=".95"/></svg>
+          <span class="st"><small>Google Play</small><strong>다운로드</strong></span>
+        </a>
+      </div>
+      <p class="note">통합검색 포함 모든 기능 — 고객 30명까지 무료</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand"><img src="assets/icon.png" alt="스마트도사" />스마트도사</div>
+      <nav class="foot-links">
+        <a href="https://privacy.smartdosa.com/" target="_blank" rel="noopener">개인정보처리방침</a>
+        <a href="https://privacy.smartdosa.com/terms.html" target="_blank" rel="noopener">이용약관</a>
+        <a href="https://privacy.smartdosa.com/support.html" target="_blank" rel="noopener">지원</a>
+        <a href="https://privacy.smartdosa.com/delete-request.html" target="_blank" rel="noopener">계정·데이터 삭제</a>
+        <a href="mailto:support@bycode.kr">문의</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 주식회사 바이코드 (By Code Co.) · support@bycode.kr</span>
+      <span>명리사의 모바일 상담 운영 도구</span>
+    </div>
+    <p class="tm">App Store는 Apple Inc.의, Google Play는 Google LLC의 상표입니다.</p>
+  </div>
+</footer>
+
+</body>
+</html>
