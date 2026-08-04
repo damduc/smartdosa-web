@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>사용 가이드 — 스마트도사</title>
+<meta name="description" content="스마트도사 사용 가이드. 설치와 첫 화면부터 명식 계산, 고객 관리, 상담 기록과 통합검색, 궁합 보기, 백업·복원, 요금 안내까지 단계별로 정리했습니다." />
+<meta name="theme-color" content="#FBEFDC" />
+<link rel="canonical" href="https://smartdosa.com/guide.html" />
+<link rel="icon" href="assets/icon.png" />
+<link rel="apple-touch-icon" href="assets/icon.png" />
+
+<!-- Open Graph / 소셜 공유 -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="스마트도사" />
+<meta property="og:title" content="사용 가이드 — 스마트도사" />
+<meta property="og:description" content="설치와 첫 화면부터 명식 계산, 고객 관리, 상담 기록과 통합검색, 궁합 보기, 백업·복원, 요금 안내까지." />
+<meta property="og:url" content="https://smartdosa.com/guide.html" />
+<meta property="og:image" content="https://smartdosa.com/assets/og-image.png" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="사용 가이드 — 스마트도사" />
+<meta name="twitter:description" content="설치부터 명식 계산, 고객 관리, 상담 기록, 통합검색, 백업까지 단계별 가이드." />
+<meta name="twitter:image" content="https://smartdosa.com/assets/og-image.png" />
+
+<style>
+  :root{
+    --cream:#FBEFDC; --cream-2:#FDF7EC; --paper:#ffffff;
+    --ink:#241E1A; --ink-soft:#5C5249; --ink-faint:#6E6357;
+    --accent:#B5532A; --accent-deep:#8E3E1E; --gold:#C29A45;
+    --line:rgba(36,30,26,.12); --line-soft:rgba(36,30,26,.07);
+    --shadow:0 10px 30px rgba(36,30,26,.10); --shadow-lg:0 24px 60px rgba(36,30,26,.16);
+    --radius:18px; --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition-duration:.001ms!important;animation-duration:.001ms!important}}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic","Noto Sans KR",sans-serif;
+    color:var(--ink); background:var(--cream-2); line-height:1.6;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    word-break:keep-all; overflow-wrap:anywhere;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .eyebrow{font-size:.82rem;font-weight:700;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+
+  /* Header (동일 — 랜딩과 공유) */
+  header{position:sticky;top:0;z-index:50;background:rgba(253,247,236,.82);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line-soft)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.01em}
+  .brand img{width:30px;height:30px;border-radius:8px;box-shadow:0 2px 6px rgba(36,30,26,.18)}
+  .nav-links{display:flex;align-items:center;gap:26px}
+  .nav-links a{font-size:.94rem;color:var(--ink-soft);font-weight:600}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;border-radius:12px;padding:11px 18px;font-size:.95rem;transition:transform .12s ease,box-shadow .12s ease,background .12s ease;white-space:nowrap}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 16px rgba(181,83,42,.28)}
+  .btn-primary:hover{background:var(--accent-deep);transform:translateY(-1px)}
+  .btn-sm{padding:9px 15px;font-size:.9rem}
+  @media(max-width:720px){.nav-links a:not(.btn){display:none}}
+
+  /* Guide Header */
+  .guide-head{background:linear-gradient(180deg,var(--cream) 0%,var(--cream-2) 100%);padding:52px 0 40px}
+  .guide-head h1{font-size:clamp(1.9rem,4.6vw,2.7rem);font-weight:850;letter-spacing:-.02em;line-height:1.2;margin-top:12px}
+  .guide-head p.lead{margin-top:16px;font-size:1.06rem;color:var(--ink-soft);max-width:62ch}
+
+  /* Layout: sidebar TOC + content */
+  .guide-body{padding:40px 0 84px}
+  .guide-layout{display:grid;grid-template-columns:262px 1fr;gap:44px;align-items:start}
+
+  .toc{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 22px 24px;position:sticky;top:84px;max-height:calc(100vh - 104px);overflow-y:auto}
+  .toc h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:800;margin-bottom:14px}
+  .toc-part{margin-top:18px}
+  .toc-part:first-of-type{margin-top:0}
+  .toc-part .part-label{font-size:.86rem;font-weight:800;color:var(--ink);margin-bottom:8px}
+  .toc ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .toc a{font-size:.87rem;color:var(--ink-soft);font-weight:600;display:block;padding:2px 0;line-height:1.4}
+  .toc a:hover{color:var(--accent)}
+
+  .guide-content{min-width:0}
+  .part{margin-bottom:58px;scroll-margin-top:84px}
+  .part:last-child{margin-bottom:0}
+  .part-eyebrow{font-size:.82rem;font-weight:800;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+  .part-title{font-size:clamp(1.4rem,3vw,1.85rem);font-weight:850;letter-spacing:-.02em;margin-top:8px;margin-bottom:26px;padding-bottom:16px;border-bottom:2px solid var(--line)}
+
+  .gsec{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 26px;margin-bottom:20px;scroll-margin-top:84px}
+  .gsec:last-child{margin-bottom:0}
+  .gsec h3{font-size:1.18rem;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .gsec p{color:var(--ink-soft);margin-top:12px;line-height:1.75}
+  .gsec p+p{margin-top:10px}
+  .gsec ol,.gsec ul.plain{margin-top:12px;padding-left:1.35em;color:var(--ink-soft);display:flex;flex-direction:column;gap:9px;line-height:1.65}
+  .gsec ol{list-style:decimal}
+  .gsec ul.plain{list-style:disc}
+  .gsec ul.plain ul.plain,.gsec ol ul.plain{margin-top:6px}
+  .gsec h4{font-size:1rem;font-weight:800;color:var(--ink);margin-top:20px;margin-bottom:2px}
+  .gsec .note-sm{margin-top:10px;font-size:.88rem;color:var(--ink-faint)}
+
+  .ui{background:var(--cream);border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-weight:700;font-size:.94em;color:var(--ink);white-space:nowrap}
+
+  .callout{margin-top:16px;background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
+  .callout svg{width:20px;height:20px;color:var(--accent);flex:none;margin-top:2px}
+  .callout p{margin-top:0;color:var(--ink-soft);font-size:.94rem}
+
+  .warn-box{margin-top:16px;background:#FCEEEA;border:1.5px solid rgba(181,83,42,.4);border-radius:14px;padding:18px 20px;display:flex;gap:12px;align-items:flex-start}
+  .warn-box svg{width:22px;height:22px;color:var(--accent-deep);flex:none;margin-top:1px}
+  .warn-box strong{color:var(--accent-deep);display:block;margin-bottom:4px;font-size:.98rem}
+  .warn-box p{margin-top:0;color:var(--accent-deep);font-size:.94rem;line-height:1.6}
+
+  .cmp-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.92rem}
+  .cmp-table th,.cmp-table td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top;color:var(--ink-soft)}
+  .cmp-table th{background:var(--cream);color:var(--ink);font-weight:800;font-size:.88rem}
+  .cmp-table td strong{color:var(--ink)}
+  @media(max-width:560px){.cmp-table{font-size:.85rem}.cmp-table th,.cmp-table td{padding:8px 9px}}
+
+  .price-table{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+  .price-box{background:var(--cream-2);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .price-box.pro{border:1.5px solid var(--accent)}
+  .price-box .tag{font-size:.8rem;font-weight:800;color:var(--ink-faint);letter-spacing:.03em}
+  .price-box.pro .tag{color:var(--accent)}
+  .price-box .amt{font-size:1.5rem;font-weight:850;margin-top:6px}
+  .price-box .amt small{font-size:.86rem;font-weight:600;color:var(--ink-faint)}
+  .price-box .sub2{margin-top:4px;font-size:.86rem;color:var(--ink-soft)}
+  @media(max-width:560px){.price-table{grid-template-columns:1fr}}
+
+  .step-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;font-size:.78rem;font-weight:800;flex:none}
+
+  details.faq-item{border-bottom:1px solid var(--line-soft);padding:16px 0}
+  details.faq-item:first-of-type{padding-top:0}
+  details.faq-item:last-of-type{border-bottom:none;padding-bottom:0}
+  details.faq-item summary{cursor:pointer;font-weight:700;font-size:1rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px;color:var(--ink)}
+  details.faq-item summary::-webkit-details-marker{display:none}
+  details.faq-item summary .plus{font-size:1.3rem;color:var(--accent);flex:none;font-weight:400;transition:transform .15s ease}
+  details.faq-item[open] summary .plus{transform:rotate(45deg)}
+  details.faq-item p{margin-top:10px;color:var(--ink-soft);line-height:1.75}
+  details.faq-item p+p{margin-top:8px}
+
+  @media(max-width:900px){
+    .guide-layout{grid-template-columns:1fr}
+    .toc{position:static;max-height:none;order:-1}
+  }
+
+  /* Footer (동일 — 랜딩과 공유) */
+  footer{background:#1B1714;color:rgba(255,255,255,.72);padding:46px 0 40px;font-size:.92rem}
+  .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start}
+  .foot-brand{display:flex;align-items:center;gap:11px;color:#fff;font-weight:800}
+  .foot-brand img{width:34px;height:34px;border-radius:9px}
+  .foot-links{display:flex;flex-wrap:wrap;gap:18px}
+  .foot-links a{color:rgba(255,255,255,.78)}
+  .foot-links a:hover{color:#fff}
+  .foot-bottom{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;color:rgba(255,255,255,.55);font-size:.86rem}
+  .foot-bottom a{color:rgba(255,255,255,.72)}
+  footer .tm{margin-top:14px;color:rgba(255,255,255,.6);font-size:.78rem;line-height:1.5}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><img src="assets/icon.png" alt="스마트도사 아이콘" />스마트도사</a>
+    <nav class="nav-links">
+      <a href="index.html">홈</a>
+      <a href="index.html#download" class="btn btn-primary btn-sm">다운로드</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- GUIDE HEAD -->
+  <section class="guide-head">
+    <div class="wrap">
+      <span class="eyebrow">사용 가이드</span>
+      <h1>스마트도사, 이렇게 쓰세요</h1>
+      <p class="lead">설치와 첫 화면부터 명식(태어난 순간의 사주 구성) 계산, 고객 관리, 상담 기록, 백업까지 — 처음 쓰는 분도 순서대로 따라오면 됩니다.</p>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <div class="guide-body">
+    <div class="wrap guide-layout">
+
+      <!-- TOC -->
+      <nav class="toc" aria-label="목차">
+        <h2>목차</h2>
+
+        <div class="toc-part">
+          <div class="part-label">1부. 시작하기</div>
+          <ul>
+            <li><a href="#what-is-smartdosa">스마트도사는 어떤 앱인가</a></li>
+            <li><a href="#install-first-run">설치와 첫 화면</a></li>
+            <li><a href="#screen-layout">화면 구성</a></li>
+          </ul>
+        </div>
+
+        <div class="toc-part">
+          <div class="part-label">2부. 명식 계산과 고객 관리</div>
+          <ul>
+            <li><a href="#first-calculation">첫 명식 계산하기</a></li>
+            <li><a href="#advanced-options">고급 옵션</a></li>
+            <li><a href="#reading-results">결과 화면 보는 법</a></li>
+            <li><a href="#customer-list">고객 목록</a></li>
+            <li><a href="#customer-detail">고객 상세 3탭</a></li>
+          </ul>
+        </div>
+
+        <div class="toc-part">
+          <div class="part-label">3부. 상담을 깊게 쓰는 기능</div>
+          <ul>
+            <li><a href="#consultation-search">상담 기록과 통합검색</a></li>
+            <li><a href="#compare-vs-comparison">궁합 보기 vs 명식 비교</a></li>
+            <li><a href="#family-group">가족 그룹</a></li>
+            <li><a href="#calendar-stats">캘린더(만세력)와 통계</a></li>
+            <li><a href="#pdf-export">PDF 명식지</a></li>
+          </ul>
+        </div>
+
+        <div class="toc-part">
+          <div class="part-label">4부. 데이터와 요금</div>
+          <ul>
+            <li><a href="#backup-restore">클라우드 백업과 복원</a></li>
+            <li><a href="#free-vs-pro">무료와 PRO</a></li>
+            <li><a href="#restore-cancel">구매 복원·해지</a></li>
+            <li><a href="#delete-account">계정 삭제</a></li>
+          </ul>
+        </div>
+
+        <div class="toc-part">
+          <div class="part-label">더 궁금하다면</div>
+          <ul>
+            <li><a href="#faq">자주 묻는 질문</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- CONTENT -->
+      <div class="guide-content">
+
+        <!-- PART 1 -->
+        <section class="part" id="part-1">
+          <span class="part-eyebrow">1부</span>
+          <h2 class="part-title">시작하기</h2>
+
+          <article class="gsec" id="what-is-smartdosa">
+            <h3>스마트도사는 어떤 앱인가</h3>
+            <p>스마트도사는 명식(태어난 순간의 사주 구성)을 계산하고, 고객 정보와 상담 기록을 정리·검색하는 계산·기록 도구입니다. 생년월일과 생시를 입력하면 사주 원국을 계산해 보여주고, 저장한 고객마다 상담 이력을 쌓아 다음 상담에서 바로 이어갈 수 있게 해 줍니다.</p>
+            <div class="callout">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+              <p>스마트도사는 명리 상담 운영을 돕는 계산·기록 도구입니다. 운세를 단정하거나 대신 결정해 주지 않으며, 모든 해석과 상담은 사용자(역술 상담가)의 전문성에 따릅니다.</p>
+            </div>
+          </article>
+
+          <article class="gsec" id="install-first-run">
+            <h3>설치와 첫 화면</h3>
+            <p>App Store 또는 Google Play에서 설치한 뒤 앱을 열면 로그인 화면이 먼저 나옵니다. 이 화면에서 <span class="ui">로그인 없이 시작</span>을 누르면 로그인 없이 바로 앱을 사용할 수 있습니다.</p>
+            <h4>로그인하면 좋은 점</h4>
+            <p>로그인은 필수가 아니지만, 로그인하면 클라우드 백업과 기기 간 데이터 동기화가 가능합니다. 로그인 화면 하단에도 안내가 있습니다: "로그인하면 클라우드 백업, 기기 간 데이터 동기화가 가능합니다." Apple·Google·카카오 계정으로 로그인할 수 있으며, 나중에 설정 화면에서 언제든 로그인할 수 있습니다.</p>
+            <p class="note-sm">로그인 여부와 관계없이 명식 계산·고객 저장·상담 기록·통합검색 등 앱의 기본 기능은 그대로 사용할 수 있습니다. 로그인이 필요해지는 순간은 클라우드 백업·복원을 쓸 때, 그리고 무료 고객 등록 한도에 도달해 PRO 구독을 진행할 때뿐입니다.</p>
+          </article>
+
+          <article class="gsec" id="screen-layout">
+            <h3>화면 구성</h3>
+            <p>스마트도사는 휴대폰 화면 하단에 5개의 탭으로 구성됩니다.</p>
+            <ul class="plain">
+              <li><strong>홈</strong> — 오늘의 사주 절기와 최근 등록한 고객을 보여주는 대시보드</li>
+              <li><strong>고객</strong> — 저장한 고객 목록, 검색·정렬·비교 모드</li>
+              <li><strong>검색</strong> — 고객과 상담 기록을 함께 찾는 통합검색</li>
+              <li><strong>캘린더</strong> — 월간 만세력 보기</li>
+              <li><strong>설정</strong> — 계정, 백업, 구독, PDF 워터마크, 앱 정보</li>
+            </ul>
+            <p class="note-sm">태블릿처럼 화면이 넓은 기기에서는 같은 5개 메뉴가 하단 탭 대신 화면 좌측의 세로 메뉴(레일 또는 사이드 메뉴)로 표시됩니다. 위치만 다를 뿐 메뉴 구성과 기능은 동일합니다.</p>
+          </article>
+        </section>
+
+        <!-- PART 2 -->
+        <section class="part" id="part-2">
+          <span class="part-eyebrow">2부</span>
+          <h2 class="part-title">명식 계산과 고객 관리</h2>
+
+          <article class="gsec" id="first-calculation">
+            <h3>첫 명식 계산하기</h3>
+            <p>홈 화면 우측 하단의 <span class="ui">명식 추가</span> 버튼을 누르면 사주 입력 화면이 열립니다. 6개 항목을 순서대로 입력하세요.</p>
+            <ol>
+              <li><span class="step-badge">1</span> &nbsp;<strong>달력 종류</strong> — "양력" 또는 "음력"을 선택합니다. 음력을 선택하면 "윤달 (閏月)" 체크박스가 나타나며, 입력한 달이 윤달이면 체크합니다.</li>
+              <li><span class="step-badge">2</span> &nbsp;<strong>생년월일</strong> — 탭하면 년·월·일을 고르는 선택 창이 열립니다.</li>
+              <li><span class="step-badge">3</span> &nbsp;<strong>생시(生時)</strong> — 시각을 알면 선택하고, 모르면 "시각 모름"을 체크하세요. 안내 문구대로 "출생 시각을 모를 경우 '시각 모름'을 선택하세요."</li>
+              <li><span class="step-badge">4</span> &nbsp;<strong>출생지 (시주 보정)</strong> — 태어난 도시를 선택합니다. "출생 도시별 경도 보정 (시주·일주에 적용)"에 쓰이므로, 가능하면 선택하는 것이 좋습니다.</li>
+              <li><span class="step-badge">5</span> &nbsp;<strong>성별</strong> — "남성 男" 또는 "여성 女"를 선택합니다. 대운(10년 단위로 바뀌는 흐름)이 순행·역행하는 방향을 정하는 데 쓰입니다.</li>
+              <li><span class="step-badge">6</span> &nbsp;마지막으로 <span class="ui">사주 보기</span> 버튼을 누르면 계산이 시작됩니다.</li>
+            </ol>
+          </article>
+
+          <article class="gsec" id="advanced-options">
+            <h3>고급 옵션</h3>
+            <p>사주 입력 화면의 "고급 옵션"을 펼치면 다음 세 가지를 추가로 설정할 수 있습니다. 잘 모르겠다면 기본값 그대로 두어도 괜찮습니다.</p>
+            <h4>서머타임(DST) 적용</h4>
+            <p>1948~1988년 사이 서머타임이 시행되던 기간에 태어났다면 이 스위치를 켜세요. 입력한 시각을 1시간 앞당겨 보정합니다. 해당 기간에 태어난 경우 화면에 "이 생년월일은 서머타임 기간에 해당합니다"라는 안내가 자동으로 뜹니다.</p>
+            <h4>12운성 학파</h4>
+            <p>12운성(사주의 기운이 태어나고 자라고 쇠하는 단계를 보는 이론)을 계산하는 방식으로 "연해자평식"(음양에 따라 순행·역행이 갈리는 방식)과 "명리정종식"(음양과 무관하게 같은 방향으로 도는 방식) 중에서 고를 수 있습니다.</p>
+            <h4>자시(子時) 구분 — 야자시/조자시</h4>
+            <p>자시 무렵(23:30~01:30)에 태어난 경우 "야자시 (夜子時)"(23:30 기준으로 다음 날 일주를 적용)와 "조자시 (早子時)"(01:30 기준으로 전날 일주를 적용) 중에서 선택할 수 있습니다.</p>
+            <div class="callout">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+              <p>서머타임(DST)을 켜면 야자시/조자시 옵션은 자동으로 비활성화됩니다. 두 보정을 동시에 적용할 수 없기 때문이며, 화면에도 "DST 적용 시 야자시/조자시 옵션은 비활성화됩니다"라고 안내됩니다.</p>
+            </div>
+          </article>
+
+          <article class="gsec" id="reading-results">
+            <h3>결과 화면 보는 법</h3>
+            <p>계산이 끝나면 결과 화면에 원국(태어난 순간의 사주 네 기둥)과 대운(10년 단위 흐름), 세운(연 단위 흐름) 등 사주 구성이 표시됩니다.</p>
+            <h4>저장하기</h4>
+            <p>화면 위쪽의 저장 아이콘(북마크 모양, 툴팁 "저장")을 누르면 이 명식을 고객으로 저장할 수 있습니다. 이름·연락처·태그·메모를 입력하는 창이 열리고, 저장을 마치면 "저장되었습니다" 알림과 함께 방금 만든 고객의 상세 화면으로 자동 이동합니다.</p>
+            <p class="note-sm">이미 저장된 고객의 결과 화면이라면 저장 아이콘을 눌러도 한도 확인 없이 바로 정보를 수정할 수 있습니다. 신규 고객을 새로 저장할 때만 무료 등록 한도가 적용됩니다 — 자세한 내용은 <a href="#free-vs-pro">무료와 PRO</a>에서 설명합니다.</p>
+            <p class="note-sm">저장된 고객의 결과 화면에서는 사람 아이콘(툴팁 "궁합 보기")을 눌러 다른 고객과의 궁합을 바로 확인할 수도 있습니다.</p>
+          </article>
+
+          <article class="gsec" id="customer-list">
+            <h3>고객 목록</h3>
+            <p>하단 "고객" 탭에서 저장한 고객을 검색·정렬하고 관리할 수 있습니다.</p>
+            <h4>검색과 상세 검색</h4>
+            <p>상단 검색창("고객 이름 검색...")에 이름을 입력하면 바로 걸러집니다. 오른쪽의 "상세 검색" 아이콘을 누르면 태그와 출생 연도로 더 좁혀 찾을 수 있는 창이 열립니다 — "태그 선택", "출생 연도" 범위를 정한 뒤 "적용"을 누르면 반영되고, "초기화"로 조건을 지울 수 있습니다.</p>
+            <h4>정렬</h4>
+            <p>목록 상단의 정렬 메뉴에서 "최근 등록순", "최근 상담순", "오래된 상담순", "이름순" 중 하나를 고를 수 있습니다.</p>
+            <h4>삭제와 실행 취소</h4>
+            <p>고객 항목을 왼쪽으로 스와이프하면 삭제됩니다. 삭제 직후 화면 아래에 "프로필이 삭제되었습니다" 알림과 함께 "실행 취소" 버튼이 나타나며, 이 버튼을 누르면 삭제가 취소됩니다.</p>
+            <h4>비교 모드</h4>
+            <p>상단 아이콘("비교 모드")을 누르면 여러 고객을 선택하는 모드로 바뀝니다. 항목을 길게 누르면 바로 비교 모드로 진입하며 선택되고, 최대 4명까지 선택할 수 있습니다(초과 시 "최대 4명까지 선택 가능합니다" 안내). 2명 이상 선택하면 하단에 "비교하기 ({N}명)" 버튼이 나타나며, 눌러서 명식 비교 화면으로 이동합니다.</p>
+          </article>
+
+          <article class="gsec" id="customer-detail">
+            <h3>고객 상세 3탭</h3>
+            <p>고객 목록이나 홈 화면의 "최근 프로필"에서 이름을 탭하면 상세 화면이 열립니다. 상단에 이름·나이·성별·양력/음력 생년월일·생시가 표시되고, 그 아래 3개의 탭으로 구성됩니다.</p>
+            <ul class="plain">
+              <li><strong>사주 결과</strong> — 이 고객의 명식(원국·대운·세운)</li>
+              <li><strong>상담 이력</strong> — 지금까지의 상담 기록 타임라인</li>
+              <li><strong>가족 그룹</strong> — 이 고객과 연결된 가족·지인</li>
+            </ul>
+            <p>상단의 <span class="ui">편집</span> 버튼으로 이름·연락처·태그·메모 등 고객 정보를 수정할 수 있고, PDF 아이콘으로 명식지를 출력하거나(<a href="#pdf-export">PDF 명식지</a> 참고), 사람 아이콘의 팝업 메뉴에서 "궁합 보기"와 "명식 비교" 중 원하는 비교 방식을 선택할 수 있습니다.</p>
+          </article>
+        </section>
+
+        <!-- PART 3 -->
+        <section class="part" id="part-3">
+          <span class="part-eyebrow">3부</span>
+          <h2 class="part-title">상담을 깊게 쓰는 기능</h2>
+
+          <article class="gsec" id="consultation-search">
+            <h3>상담 기록과 통합검색</h3>
+            <h4>상담 기록 남기기</h4>
+            <p>고객 상세 화면의 "상담 이력" 탭에서 우측 하단 + 버튼을 누르면 "상담 기록 추가" 창이 열립니다. "날짜"를 정하고, "메모"에 상담 내용을 적고, "주제"에서 상담 키워드를 골라 두면(직접 입력도 가능) <span class="ui">저장</span>과 함께 연도별로 정리되어 타임라인에 쌓입니다. 다음 상담에서 지난 이야기를 바로 확인할 수 있습니다.</p>
+            <h4>통합검색</h4>
+            <p>하단 "검색" 탭에서는 고객과 상담 기록을 한 번에 찾을 수 있습니다. 검색창에 검색어를 입력하면 이름이나 생년월일뿐 아니라 지난 상담 메모 속에 적어 둔 단어까지 함께 찾아 "고객"과 "상담" 두 섹션으로 나눠 보여줍니다. 예를 들어 메모에 "이사"라는 단어를 적어 두었다면, 나중에 "이사"로 검색했을 때 그 상담 기록이 결과에 함께 나타납니다. 검색 결과에서 항목을 탭하면 해당 고객 상세 화면으로 이동합니다.</p>
+          </article>
+
+          <article class="gsec" id="compare-vs-comparison">
+            <h3>궁합 보기 vs 명식 비교</h3>
+            <p>스마트도사에는 이름이 비슷한 두 가지 비교 기능이 있습니다. 헷갈리기 쉬우니 아래 표로 차이를 확인하세요.</p>
+            <table class="cmp-table">
+              <thead>
+                <tr>
+                  <th style="width:26%">구분</th>
+                  <th>궁합 보기</th>
+                  <th>명식 비교</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>인원</strong></td>
+                  <td>두 사람</td>
+                  <td>2~4명</td>
+                </tr>
+                <tr>
+                  <td><strong>하는 일</strong></td>
+                  <td>두 사람의 합충(글자끼리 끌리거나 부딪히는 관계)·귀문(귀문관살)·원진(원진살)을 실제로 계산</td>
+                  <td>여러 명의 원국을 나란히 나열만 함 — 관계 계산 없음</td>
+                </tr>
+                <tr>
+                  <td><strong>보는 방식</strong></td>
+                  <td>년주·월주·일주·시주 기둥별로 1:1 비교</td>
+                  <td>각자의 명식을 카드로 펼쳐서 병렬로 보기</td>
+                </tr>
+                <tr>
+                  <td><strong>추가 기능</strong></td>
+                  <td>"인물 교체"로 비교 대상을 바로 바꿀 수 있음</td>
+                  <td>—</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="note-sm">고객 상세 화면이나 결과 화면의 사람 아이콘을 누르면 "궁합 보기"와 "명식 비교" 중에서 선택할 수 있습니다. 두 사람의 합·충 관계가 궁금하면 "궁합 보기", 여러 명의 명식을 한 화면에 놓고 보고 싶으면 "명식 비교"를 선택하세요.</p>
+            <p class="note-sm">참고로 고객 상세 화면의 "명식 비교" 메뉴는 비교 대상 1명을 골라 <strong>두 명 비교</strong>로 열립니다. 3~4명을 한 번에 나란히 보려면 하단 "고객" 탭의 비교 모드에서 여러 명을 선택한 뒤 "비교하기"를 누르세요.</p>
+          </article>
+
+          <article class="gsec" id="family-group">
+            <h3>가족 그룹</h3>
+            <p>가족이나 지인처럼 자주 함께 상담하는 고객끼리 연결해 두면, 관계를 한눈에 확인하고 비교 상담을 빠르게 진행할 수 있습니다.</p>
+            <ol>
+              <li><span class="step-badge">1</span> &nbsp;고객 상세 화면의 "가족 그룹" 탭에서 사람 추가 아이콘(툴팁 "가족 연결 추가")을 누릅니다.</li>
+              <li><span class="step-badge">2</span> &nbsp;"가족 프로필 선택"에서 연결할 고객을 고른 뒤, "관계 선택"에서 관계를 정합니다. 목록에 없는 관계라면 "직접 입력"으로 "나와의 관계 (예: 며느리)"를 적을 수 있습니다.</li>
+              <li><span class="step-badge">3</span> &nbsp;<span class="ui">연결</span>을 누르면 카드가 목록에 추가됩니다. 각 카드에서 "궁합 보기" 버튼으로 합충 관계를 바로 확인하거나, "프로필" 버튼으로 해당 고객의 상세 화면으로 이동할 수 있습니다.</li>
+            </ol>
+            <p>연결을 끊고 싶다면 카드를 왼쪽으로 스와이프하세요. "연결 삭제 확인" 대화상자에서 "해제"를 누르면 연결이 해제됩니다(취소하려면 "취소").</p>
+          </article>
+
+          <article class="gsec" id="calendar-stats">
+            <h3>캘린더(만세력)와 통계</h3>
+            <h4>캘린더</h4>
+            <p>하단 "캘린더" 탭은 월 단위로 날짜별 간지(干支, 그날의 천간·지지)를 보여주는 만세력 화면입니다. 상단의 "날짜로 이동" 아이콘을 누르면 원하는 연·월·일로 바로 이동할 수 있습니다.</p>
+            <h4>상담 통계</h4>
+            <p>홈 화면 우측 상단의 "상담 통계" 아이콘을 누르면 통계 화면으로 이동합니다. 상단의 기간 메뉴에서 "전체 기간", "이번 달", "이번 해", "최근 3개월", "최근 6개월" 중 하나를 골라 조회할 수 있고, "총 고객 수", "이번 달 상담", "이번 해 상담" 카드와 함께 "자주 오는 고객 TOP 5", "주요 상담 키워드"를 확인할 수 있습니다. TOP 5 목록의 고객을 탭하면 바로 상세 화면으로 이동합니다.</p>
+          </article>
+
+          <article class="gsec" id="pdf-export">
+            <h3>PDF 명식지</h3>
+            <p>고객 상세 화면 상단의 PDF 아이콘(툴팁 "PDF 명식지")을 누르면 이 고객의 명식지를 PDF로 만들어 공유 시트로 바로 내보낼 수 있습니다. 파일 이름은 "{고객 이름}_사주명식지.pdf" 형식으로 저장됩니다.</p>
+            <p>설정 화면의 "PDF 설정"에서 "철학관 상호"와 "연락처"를 입력해 두면, PDF 하단에 자동으로 삽입됩니다("PDF 출력 시 하단에 자동 삽입됩니다"). 상담실 이름이나 연락처를 명식지에 함께 표시하고 싶다면 미리 설정해 두세요.</p>
+          </article>
+        </section>
+
+        <!-- PART 4 -->
+        <section class="part" id="part-4">
+          <span class="part-eyebrow">4부</span>
+          <h2 class="part-title">데이터와 요금</h2>
+
+          <article class="gsec" id="backup-restore">
+            <h3>클라우드 백업과 복원</h3>
+            <p>설정 화면의 "백업" 섹션에서 "클라우드 백업"과 "클라우드 복원"을 사용할 수 있습니다. 두 기능 모두 로그인이 필요하며, 로그인하지 않은 상태에서 누르면 먼저 로그인 창이 뜹니다.</p>
+            <ul class="plain">
+              <li><strong>클라우드 백업</strong> — 지금까지 저장한 고객·상담 기록을 클라우드에 안전하게 올려 둡니다. 언제 마지막으로 백업했는지도 함께 표시됩니다.</li>
+              <li><strong>클라우드 복원</strong> — 클라우드에 올려 둔 백업 데이터를 지금 쓰는 기기로 가져옵니다.</li>
+            </ul>
+            <div class="warn-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 21h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg>
+              <div>
+                <strong>복원은 병합이 아니라 교체입니다</strong>
+                <p>"클라우드 복원"을 실행하면 지금 기기에 있는 데이터가 사라지고 백업 데이터로 완전히 바뀝니다. 확인 창에도 "현재 데이터가 백업 데이터로 교체됩니다. 계속하시겠습니까?"라고 안내됩니다. 복원 전에 최근 작업 내용이 이미 백업되어 있는지 꼭 확인하세요.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="gsec" id="free-vs-pro">
+            <h3>무료와 PRO</h3>
+            <p>스마트도사는 고객 30명까지 통합검색을 포함한 모든 기능을 무료로 쓸 수 있습니다. 고객 등록 수 외에 기능 자체를 제한하는 유료 잠금은 없습니다.</p>
+            <p>무료 한도는 <strong>새 고객을 저장하는 순간에만</strong> 확인됩니다. 이미 저장해 둔 고객을 조회하거나 검색하는 데는 아무 제한이 없습니다. 31번째 고객을 새로 저장하려 할 때만 안내가 뜹니다. 그리고 한도에 도달한 뒤에도 <strong>기존 고객·상담 이력·통합검색은 계속 무료</strong>입니다 — 앱에도 "기존 고객 30명·상담 이력·통합검색은 계속 무료로 이용할 수 있어요"라고 안내됩니다.</p>
+            <p>PRO로 업그레이드하면 고객을 무제한으로 등록할 수 있습니다. 현재 PRO의 혜택은 이 한 가지이며, 무료 플랜의 나머지 기능은 PRO에서도 동일하게 제공됩니다.</p>
+            <div class="price-table">
+              <div class="price-box">
+                <div class="tag">무료</div>
+                <div class="amt">₩0</div>
+                <div class="sub2">고객 30명까지, 통합검색 포함 모든 기능</div>
+              </div>
+              <div class="price-box pro">
+                <div class="tag">스마트도사 PRO</div>
+                <div class="amt">₩5,500<small> / 월</small></div>
+                <div class="sub2">고객 무제한 등록 · 연 33,000원(월 2,750원 환산)</div>
+              </div>
+            </div>
+            <p class="note-sm">구독은 App Store 또는 Google Play 계정으로 결제되며, 기간 만료 전 자동 갱신됩니다. 자세한 결제·해지 방법은 <a href="#restore-cancel">구매 복원·해지</a>를 참고하세요.</p>
+          </article>
+
+          <article class="gsec" id="restore-cancel">
+            <h3>구매 복원·해지</h3>
+            <h4>구독 해지</h4>
+            <p>구독은 앱 안에서 직접 해지할 수 없고, 결제한 스토어의 구독 관리 화면에서 해지합니다. 설정 화면의 "구독" 섹션에서 "구독 관리"를 누르면 App Store 또는 Google Play의 구독 관리 페이지로 이동합니다.</p>
+            <h4>구매 복원</h4>
+            <p>기기를 바꾸거나 앱을 재설치한 뒤 이미 구독 중인데 PRO 상태가 보이지 않는다면, PRO 안내 화면의 "구매 복원" 버튼을 눌러 이전 구매 내역을 다시 불러올 수 있습니다.</p>
+          </article>
+
+          <article class="gsec" id="delete-account">
+            <h3>계정 삭제</h3>
+            <p>설정 화면의 계정 섹션에서 "계정 삭제"를 누르면 확인 창이 뜹니다. 안내 문구는 다음과 같습니다.</p>
+            <p style="font-style:italic">"계정을 삭제하면 클라우드 백업과 모든 서버 데이터가 영구적으로 삭제됩니다. 이 작업은 되돌릴 수 없습니다. 기기에 저장된 데이터(프로필, 상담 기록)는 유지됩니다."</p>
+            <p class="note-sm">즉 계정을 삭제해도 지금 쓰는 기기에 저장된 고객·상담 기록은 그대로 남습니다. 삭제되는 것은 클라우드에 올려 둔 백업과 계정 정보뿐입니다.</p>
+          </article>
+        </section>
+
+        <!-- FAQ -->
+        <section class="part" id="part-faq">
+          <span class="part-eyebrow">더 궁금하다면</span>
+          <h2 class="part-title">자주 묻는 질문</h2>
+
+          <article class="gsec" id="faq">
+            <details class="faq-item" open>
+              <summary>태양시 보정이 뭔가요?<span class="plus">+</span></summary>
+              <p>사주는 손목시계가 가리키는 시각이 아니라, 태양의 위치를 기준으로 한 태양시(만세력 기준시)로 계산합니다. 우리나라는 시대에 따라 기준으로 삼은 표준시가 달랐기 때문에, 태어난 시기에 따라 시각을 조금 보정해 주어야 정확한 시주(태어난 시각의 기둥)가 나옵니다. 대략 1912~1954년과 1961년 이후는 동경 135도를 기준으로 시각에서 30분을 빼고, 1954년~1961년 사이(대한제국 표준시 적용 시기)는 보정이 필요 없습니다. 여기에 출생지를 선택하면 도시별 경도 차이도 추가로 반영됩니다. 이 계산은 앱이 자동으로 해 주므로 사용자가 직접 계산할 필요는 없습니다.</p>
+            </details>
+            <details class="faq-item">
+              <summary>입력 화면의 시각 미리보기와 결과 화면의 시지(時支)가 다를 수 있는 이유는요?<span class="plus">+</span></summary>
+              <p>사주 입력 화면에서 시각을 고를 때 보이는 미리보기는 참고용 표시로, 간단한 기준(-30분)만 적용한 값입니다. 실제 결과 화면에서는 태어난 시대의 표준시 기준과 출생지 보정까지 모두 반영해 다시 계산하므로, 두 화면의 지지(십이지 글자)가 다르게 보일 수 있습니다. 최종적으로 참고해야 할 값은 언제나 결과 화면 쪽입니다.</p>
+            </details>
+            <details class="faq-item">
+              <summary>생시(태어난 시각)를 모르면 어떻게 되나요?<span class="plus">+</span></summary>
+              <p>사주 입력 화면에서 "시각 모름"을 체크하면 됩니다. 이후 정확한 시각을 알게 되면 고객 상세 화면의 "편집"에서 다시 입력해 명식을 갱신할 수 있습니다.</p>
+            </details>
+            <details class="faq-item">
+              <summary>서머타임 기간(1948~1988년) 출생자는 어떻게 하나요?<span class="plus">+</span></summary>
+              <p>사주 입력 화면의 고급 옵션에서 "서머타임(DST) 적용" 스위치를 켜면 됩니다. 해당 기간에 태어난 생년월일을 입력하면 앱이 자동으로 "이 생년월일은 서머타임 기간에 해당합니다"라고 안내하며 적용을 권장합니다. 참고로 DST를 켜면 야자시/조자시 옵션은 함께 쓸 수 없어 비활성화됩니다.</p>
+            </details>
+            <details class="faq-item">
+              <summary>고객 30명을 넘으면 기존에 저장한 데이터는 어떻게 되나요?<span class="plus">+</span></summary>
+              <p>사라지지 않습니다. 무료 한도는 새 고객을 저장할 때만 확인되며, 이미 저장한 고객·상담 이력·통합검색은 한도와 상관없이 계속 무료로 볼 수 있습니다. 31번째 고객을 새로 저장하려 할 때만 PRO 안내가 나타납니다.</p>
+            </details>
+            <details class="faq-item">
+              <summary>백업이 안 될 때는 어떻게 하나요?<span class="plus">+</span></summary>
+              <p>먼저 로그인이 되어 있는지 확인하세요 — 백업·복원은 로그인이 필요한 기능입니다. 로그인은 되어 있는데도 실패한다면 네트워크 상태를 확인해 보세요. 네트워크가 느릴 때는 "네트워크가 느립니다. 다시 시도해주세요."라는 안내가 뜨며, 이 경우 잠시 후 다시 시도하면 됩니다.</p>
+            </details>
+            <details class="faq-item">
+              <summary>기기를 바꿀 때는 어떻게 하나요?<span class="plus">+</span></summary>
+              <p>기존 기기에서 미리 클라우드 백업을 해 두었다면, 새 기기에 앱을 설치한 뒤 같은 계정으로 로그인하고 설정에서 "클라우드 복원"을 실행하면 됩니다. 로그인한 상태에서 로컬에 데이터가 없고 클라우드에 백업이 있으면 로그인 직후 "백업 데이터 발견" 안내가 자동으로 뜨기도 합니다.</p>
+            </details>
+            <details class="faq-item">
+              <summary>문의는 어디로 하나요?<span class="plus">+</span></summary>
+              <p>설정 화면의 "문의하기"를 누르면 앱 버전·기기 정보가 자동으로 채워진 메일이 작성됩니다. 메일 앱이 없다면 문의 내용이 클립보드에 복사되니 메일 앱에서 붙여넣기 해 보내면 됩니다. 이메일로 직접 보내려면 <a href="mailto:support@bycode.kr">support@bycode.kr</a>로 문의하세요.</p>
+            </details>
+            <details class="faq-item">
+              <summary>삭제한 고객을 되돌릴 수 있나요?<span class="plus">+</span></summary>
+              <p>가능합니다. 고객 목록에서 스와이프로 삭제하면 화면 아래에 "실행 취소" 버튼이 있는 알림이 잠시 나타납니다. 이 버튼을 누르면 삭제가 취소됩니다. 알림이 사라진 뒤에는 되돌릴 수 없으니 주의하세요.</p>
+            </details>
+            <details class="faq-item">
+              <summary>궁합 보기와 명식 비교는 같은 기능인가요?<span class="plus">+</span></summary>
+              <p>다른 기능입니다. "궁합 보기"는 두 사람의 합충·귀문·원진을 실제로 계산해 주고, "명식 비교"는 2~4명의 명식을 나란히 나열만 합니다. 명식 비교를 3~4명으로 하려면 고객 목록의 비교 모드에서 선택하세요 — 고객 상세의 "명식 비교" 메뉴는 두 명 비교로 열립니다. 자세한 차이는 <a href="#compare-vs-comparison">궁합 보기 vs 명식 비교</a>에서 확인하세요.</p>
+            </details>
+          </article>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand"><img src="assets/icon.png" alt="스마트도사" />스마트도사</div>
+      <nav class="foot-links">
+        <a href="https://privacy.smartdosa.com/" target="_blank" rel="noopener">개인정보처리방침</a>
+        <a href="https://privacy.smartdosa.com/terms.html" target="_blank" rel="noopener">이용약관</a>
+        <a href="https://privacy.smartdosa.com/support.html" target="_blank" rel="noopener">지원</a>
+        <a href="https://privacy.smartdosa.com/delete-request.html" target="_blank" rel="noopener">계정·데이터 삭제</a>
+        <a href="mailto:support@bycode.kr">문의</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 주식회사 바이코드 (By Code Co.) · support@bycode.kr</span>
+      <span>명리사의 모바일 상담 운영 도구</span>
+    </div>
+    <p class="tm">App Store는 Apple Inc.의, Google Play는 Google LLC의 상표입니다.</p>
+  </div>
+</footer>
+
+</body>
+</html>
