@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>사용 가이드 — 스마트도사</title>
-<meta name="description" content="스마트도사 사용 가이드. 설치와 첫 화면부터 명식 계산, 고객 관리, 상담 기록과 통합검색, 궁합 보기, 백업·복원, 요금 안내까지 단계별로 정리했습니다." />
+<meta name="description" content="스마트도사 사용 가이드(iOS·Android·Windows PC). 설치와 첫 화면부터 명식 계산, 고객 관리, 상담 기록과 통합검색, 궁합 보기, 백업·복원, 요금 안내까지 단계별로 정리했습니다." />
 <meta name="theme-color" content="#FBEFDC" />
 <link rel="canonical" href="https://smartdosa.com/guide.html" />
 <link rel="icon" href="assets/icon.png" />
@@ -228,6 +228,16 @@
         </div>
 
         <div class="toc-part">
+          <div class="part-label">5부. PC(Windows) 버전</div>
+          <ul>
+            <li><a href="#pc-install">설치와 로그인</a></li>
+            <li><a href="#pc-layout">PC에서 달라지는 화면</a></li>
+            <li><a href="#pc-transfer">폰과 자료 옮기기</a></li>
+            <li><a href="#pc-pro">PC에서 PRO 쓰기</a></li>
+          </ul>
+        </div>
+
+        <div class="toc-part">
           <div class="part-label">더 궁금하다면</div>
           <ul>
             <li><a href="#faq">자주 묻는 질문</a></li>
@@ -254,7 +264,7 @@
 
           <article class="gsec" id="install-first-run">
             <h3>설치와 첫 화면</h3>
-            <p>App Store 또는 Google Play에서 설치한 뒤 앱을 열면 로그인 화면이 먼저 나옵니다. 이 화면에서 <span class="ui">로그인 없이 시작</span>을 누르면 로그인 없이 바로 앱을 사용할 수 있습니다.</p>
+            <p>App Store 또는 Google Play에서 설치한 뒤 앱을 열면 로그인 화면이 먼저 나옵니다. (PC 버전은 Microsoft Store에서 설치합니다 — <a href="#part-5">5부</a> 참고.) 이 화면에서 <span class="ui">로그인 없이 시작</span>을 누르면 로그인 없이 바로 앱을 사용할 수 있습니다.</p>
             <h4>로그인하면 좋은 점</h4>
             <p>로그인은 필수가 아니지만, 로그인하면 클라우드 백업과 기기 간 데이터 동기화가 가능합니다. 로그인 화면 하단에도 안내가 있습니다: "로그인하면 클라우드 백업, 기기 간 데이터 동기화가 가능합니다." Apple·Google·카카오 계정으로 로그인할 수 있으며, 나중에 설정 화면에서 언제든 로그인할 수 있습니다.</p>
             <p class="note-sm">로그인 여부와 관계없이 명식 계산·고객 저장·상담 기록·통합검색 등 앱의 기본 기능은 그대로 사용할 수 있습니다. 로그인이 필요해지는 순간은 클라우드 백업·복원을 쓸 때, 그리고 무료 고객 등록 한도에 도달해 PRO 구독을 진행할 때뿐입니다.</p>
@@ -476,11 +486,12 @@
               <li><strong>클라우드 백업</strong> — 지금까지 저장한 고객·상담 기록을 클라우드에 안전하게 올려 둡니다. 언제 마지막으로 백업했는지도 함께 표시됩니다.</li>
               <li><strong>클라우드 복원</strong> — 클라우드에 올려 둔 백업 데이터를 지금 쓰는 기기로 가져옵니다.</li>
             </ul>
+            <p class="note-sm">더 새로운 버전의 앱에서 만든 백업은 복원하지 않고 앱 업데이트를 먼저 안내합니다. 옛 버전이 새 백업을 잘못 읽어 자료가 깨지는 일을 막기 위한 확인입니다.</p>
             <div class="warn-box">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 21h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg>
               <div>
                 <strong>복원은 병합이 아니라 교체입니다</strong>
-                <p>"클라우드 복원"을 실행하면 지금 기기에 있는 데이터가 사라지고 백업 데이터로 완전히 바뀝니다. 확인 창에도 "현재 데이터가 백업 데이터로 교체됩니다. 계속하시겠습니까?"라고 안내됩니다. 복원 전에 최근 작업 내용이 이미 백업되어 있는지 꼭 확인하세요.</p>
+                <p>"클라우드 복원"을 실행하면 지금 기기에 있는 데이터가 백업 데이터로 완전히 바뀝니다. 확인 창에도 "현재 데이터가 백업 데이터로 교체됩니다. 계속하시겠습니까?"라고 안내됩니다. 다만 v1.1.0부터는 복원 직전에 <strong>이 기기의 현재 자료를 자동으로 한 번 저장</strong>한 뒤 복원하므로, 잘못 복원했더라도 직전 상태로 되돌릴 수 있습니다.</p>
               </div>
             </div>
           </article>
@@ -502,7 +513,7 @@
                 <div class="sub2">고객 무제한 등록 · 연 33,000원(월 2,750원 환산)</div>
               </div>
             </div>
-            <p class="note-sm">구독은 App Store 또는 Google Play 계정으로 결제되며, 기간 만료 전 자동 갱신됩니다. 자세한 결제·해지 방법은 <a href="#restore-cancel">구매 복원·해지</a>를 참고하세요.</p>
+            <p class="note-sm">구독은 App Store 또는 Google Play 계정으로 결제되며, 기간 만료 전 자동 갱신됩니다. PC 버전에서는 결제하지 않고, 구독 중인 계정으로 로그인하면 PRO가 그대로 적용됩니다(<a href="#pc-pro">PC에서 PRO 쓰기</a>). 자세한 결제·해지 방법은 <a href="#restore-cancel">구매 복원·해지</a>를 참고하세요.</p>
           </article>
 
           <article class="gsec" id="restore-cancel">
@@ -518,6 +529,52 @@
             <p>설정 화면의 계정 섹션에서 "계정 삭제"를 누르면 확인 창이 뜹니다. 안내 문구는 다음과 같습니다.</p>
             <p style="font-style:italic">"계정을 삭제하면 클라우드 백업과 모든 서버 데이터가 영구적으로 삭제됩니다. 이 작업은 되돌릴 수 없습니다. 기기에 저장된 데이터(프로필, 상담 기록)는 유지됩니다."</p>
             <p class="note-sm">즉 계정을 삭제해도 지금 쓰는 기기에 저장된 고객·상담 기록은 그대로 남습니다. 삭제되는 것은 클라우드에 올려 둔 백업과 계정 정보뿐입니다.</p>
+          </article>
+        </section>
+
+        <!-- PART 5 -->
+        <section class="part" id="part-5">
+          <span class="part-eyebrow">5부</span>
+          <h2 class="part-title">PC(Windows) 버전</h2>
+
+          <article class="gsec" id="pc-install">
+            <h3>설치와 로그인</h3>
+            <p>PC 버전은 Windows 10/11에서 <a href="https://apps.microsoft.com/detail/9PLB0QLL22LK" target="_blank" rel="noopener">Microsoft Store</a>로 설치합니다. 업데이트도 스토어가 자동으로 합니다. 설치한 뒤 앱을 열면 폰과 같은 로그인 화면이 나오며, <span class="ui">로그인 없이 시작</span>도 그대로 있습니다.</p>
+            <p>폰에서 쓰던 계정(Apple·Google·카카오)으로 로그인하면 됩니다. 로그인 창은 PC의 웹 브라우저로 열리고, 로그인이 끝나면 앱으로 돌아옵니다.</p>
+            <p class="note-sm">PC 버전은 별도 상품이 아니라 같은 앱입니다. 계정·요금·데이터 규칙이 폰과 동일하며, 고객 자료는 이 PC 안에 저장됩니다.</p>
+          </article>
+
+          <article class="gsec" id="pc-layout">
+            <h3>PC에서 달라지는 화면</h3>
+            <ul class="plain">
+              <li><strong>2단 화면</strong> — 고객·검색 화면에서 왼쪽에 목록, 오른쪽에 선택한 고객의 내용이 함께 보입니다. 고객을 오갈 때 화면이 바뀌지 않습니다. 창을 좁히면 폰처럼 한 단으로 돌아갑니다.</li>
+              <li><strong>마우스와 키보드</strong> — 폰의 밀어서 삭제·당겨서 새로고침 대신, 목록 항목에 마우스를 올리면 휴지통 아이콘이 나타나고 상단에 새로고침 버튼이 있습니다. 긴 상담 메모는 키보드로 입력합니다.</li>
+              <li><strong>파일 창</strong> — 엑셀 등록·저장, PDF 명식지, 백업 파일은 Windows의 열기·저장 창으로 다룹니다.</li>
+            </ul>
+            <p class="note-sm">그 밖의 기능(명식 계산·통합검색·상담 기록·가족 그룹·PDF)은 폰과 같은 화면과 같은 방법으로 씁니다. 2부·3부 설명이 그대로 적용됩니다.</p>
+          </article>
+
+          <article class="gsec" id="pc-transfer">
+            <h3>폰과 자료 옮기기</h3>
+            <p>폰과 PC 사이의 실시간 자동 동기화는 아직 없습니다. 자료는 <strong>백업과 복원</strong>으로 옮깁니다.</p>
+            <ol>
+              <li><span class="step-badge">1</span> &nbsp;자료가 있는 쪽(예: 폰)에서 설정 → <span class="ui">클라우드 백업</span>.</li>
+              <li><span class="step-badge">2</span> &nbsp;받을 쪽(예: PC)에서 같은 계정으로 로그인한 뒤 설정 → <span class="ui">클라우드 복원</span>.</li>
+              <li><span class="step-badge">3</span> &nbsp;복원 직전에 받을 쪽의 현재 자료가 자동으로 한 번 저장되므로, 잘못 복원해도 되돌릴 수 있습니다.</li>
+            </ol>
+            <div class="warn-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 21h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg>
+              <div>
+                <strong>마지막에 백업한 쪽이 기준입니다</strong>
+                <p>양쪽에서 번갈아 작업하면 나중에 백업한 쪽의 자료가 남습니다. 폰과 PC를 함께 쓴다면 "작업을 끝낸 쪽에서 백업 → 다음에 쓸 쪽에서 복원" 순서를 지키세요.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="gsec" id="pc-pro">
+            <h3>PC에서 PRO 쓰기</h3>
+            <p>PC 버전 안에서는 결제하지 않습니다. 폰(App Store 또는 Google Play)에서 PRO를 구독한 계정으로 PC에서 로그인하면 구독 상태가 그대로 인식되어 고객을 무제한으로 등록할 수 있습니다.</p>
+            <p class="note-sm">로그인했는데도 PC에서 PRO로 보이지 않으면, 폰에서 구독한 바로 그 계정으로 로그인했는지 확인하세요. 무료 고객 30명 한도는 기기별로 적용됩니다.</p>
           </article>
         </section>
 
@@ -554,6 +611,14 @@
             <details class="faq-item">
               <summary>기기를 바꿀 때는 어떻게 하나요?<span class="plus">+</span></summary>
               <p>기존 기기에서 미리 클라우드 백업을 해 두었다면, 새 기기에 앱을 설치한 뒤 같은 계정으로 로그인하고 설정에서 "클라우드 복원"을 실행하면 됩니다. 로그인한 상태에서 로컬에 데이터가 없고 클라우드에 백업이 있으면 로그인 직후 "백업 데이터 발견" 안내가 자동으로 뜨기도 합니다.</p>
+            </details>
+            <details class="faq-item">
+              <summary>PC에서도 쓸 수 있나요?<span class="plus">+</span></summary>
+              <p>네. Windows 10/11용 PC 버전을 Microsoft Store에서 설치할 수 있습니다. 폰과 같은 계정으로 로그인하고, 백업·복원으로 자료를 옮깁니다. 자세한 내용은 <a href="#part-5">5부 PC(Windows) 버전</a>을 참고하세요. macOS 버전은 아직 없습니다.</p>
+            </details>
+            <details class="faq-item">
+              <summary>폰과 PC가 자동으로 동기화되나요?<span class="plus">+</span></summary>
+              <p>아직은 아닙니다. 한쪽에서 클라우드 백업을 하고 다른 쪽에서 클라우드 복원을 하는 방식으로 옮기며, 마지막에 백업한 쪽의 자료가 기준이 됩니다. 복원 직전에 현재 자료가 자동으로 한 번 저장되므로 실수해도 되돌릴 수 있습니다.</p>
             </details>
             <details class="faq-item">
               <summary>다른 만세력 앱의 고객을 옮겨올 수 있나요?<span class="plus">+</span></summary>
@@ -600,7 +665,7 @@
       <span>© 2026 주식회사 바이코드 (By Code Co.) · support@bycode.kr</span>
       <span>명리사의 모바일 상담 운영 도구</span>
     </div>
-    <p class="tm">App Store는 Apple Inc.의, Google Play는 Google LLC의 상표입니다.</p>
+    <p class="tm">App Store는 Apple Inc.의, Google Play는 Google LLC의, Microsoft Store와 Windows는 Microsoft Corporation의 상표입니다.</p>
   </div>
 </footer>
 

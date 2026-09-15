@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>스마트도사 — 명리사의 모바일 상담 운영 도구</title>
+<title>스마트도사 — 명리사의 상담 운영 도구 (iOS · Android · Windows PC)</title>
 <meta name="description" content="명식으로 고객을 찾고 상담을 기록·검색하는 명리사 상담 운영 도구. 통합검색·만세력·가족 합충 비교·PDF 명식지. 고객 30명까지 모든 기능 무료, 투명한 단일 요금 구독." />
 <meta name="theme-color" content="#FBEFDC" />
 <link rel="canonical" href="https://smartdosa.com/" />
@@ -13,7 +13,7 @@
 <!-- Open Graph / 소셜 공유 -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="스마트도사" />
-<meta property="og:title" content="스마트도사 — 명리사의 모바일 상담 운영 도구" />
+<meta property="og:title" content="스마트도사 — 명리사의 상담 운영 도구 (iOS · Android · Windows PC)" />
 <meta property="og:description" content="명식으로 고객을 찾고 상담을 기록·검색. 통합검색·만세력·가족 합충 비교. 고객 30명까지 모든 기능 무료." />
 <meta property="og:url" content="https://smartdosa.com/" />
 <meta property="og:image" content="https://smartdosa.com/assets/og-image.png" />
@@ -110,6 +110,8 @@
 
   /* Features */
   #features{background:linear-gradient(180deg,var(--cream-2),#fff)}
+  #pc .note{font-size:.92rem;color:var(--ink-faint);font-weight:600;line-height:1.6}
+  #pc .note a{color:var(--accent);text-decoration:underline}
   .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .feat{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--radius);padding:26px 22px;box-shadow:var(--shadow);transition:transform .14s ease,box-shadow .14s ease}
   .feat:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
@@ -183,9 +185,9 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <span class="badge"><span class="dot"></span>정식 출시 · iOS · Android</span>
-        <h1>명리사의 모바일<br /><span class="hl">상담 운영 도구</span></h1>
-        <p class="sub">고객을 명식으로 찾고, 상담을 기록·검색하세요. 만세력 계산기를 넘어, 하루 상담 운영을 모바일에서 끝냅니다.</p>
+        <span class="badge"><span class="dot"></span>정식 출시 · iOS · Android · Windows PC</span>
+        <h1>명리사의<br /><span class="hl">상담 운영 도구</span></h1>
+        <p class="sub">고객을 명식으로 찾고, 상담을 기록·검색하세요. 만세력 계산기를 넘어, 하루 상담 운영을 폰에서도 PC에서도 끝냅니다.</p>
         <div class="cta-row">
           <a class="store-btn" href="https://apps.apple.com/kr/app/id6761471796" target="_blank" rel="noopener" aria-label="App Store에서 스마트도사 다운로드">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.36 1.43c.05.86-.28 1.7-.86 2.32-.6.66-1.6 1.17-2.55 1.09-.07-.84.32-1.71.87-2.27.61-.63 1.66-1.12 2.54-1.14zM19.9 17.3c-.5 1.16-.74 1.67-1.39 2.7-.9 1.43-2.18 3.22-3.76 3.23-1.4.02-1.77-.92-3.67-.9-1.9.01-2.3.92-3.7.9-1.58-.01-2.79-1.62-3.7-3.05C1.2 16.5.94 11.78 2.5 9.27c1.1-1.78 2.85-2.82 4.5-2.82 1.67 0 2.72.92 4.1.92 1.34 0 2.16-.92 4.1-.92 1.47 0 3.02.8 4.13 2.18-3.63 1.99-3.04 7.18.57 8.67z"/></svg>
@@ -194,6 +196,10 @@
           <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.bycode.sajuSuchep" target="_blank" rel="noopener" aria-label="Google Play에서 스마트도사 다운로드">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M3.6 2.3c-.3.3-.5.7-.5 1.3v16.8c0 .6.2 1 .5 1.3l.1.1L13 12.1v-.2L3.7 2.2z"/><path fill="#fff" d="M16.3 15.4 13 12.1v-.2l3.3-3.3.1.1 3.9 2.2c1.1.6 1.1 1.7 0 2.3z" opacity=".85"/><path fill="#fff" d="M16.4 15.5 13 12 3.6 21.7c.4.4 1 .4 1.7 0z" opacity=".7"/><path fill="#fff" d="M16.4 8.5 5.3 2.3c-.7-.4-1.3-.4-1.7 0L13 12z" opacity=".95"/></svg>
             <span class="st"><small>Google Play</small><strong>다운로드</strong></span>
+          </a>
+          <a class="store-btn" href="https://apps.microsoft.com/detail/9PLB0QLL22LK" target="_blank" rel="noopener" aria-label="Microsoft Store에서 스마트도사 PC 버전 다운로드">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.6 11 3.5v8H3zM12.5 3.3 21 2v9.5h-8.5zM3 12.5h8v8L3 19.4zM12.5 12.5H21V22l-8.5-1.3z"/></svg>
+            <span class="st"><small>Microsoft Store</small><strong>PC 버전</strong></span>
           </a>
         </div>
         <p class="note">고객 30명까지 통합검색 포함 모든 기능 무료</p>
@@ -274,6 +280,22 @@
     </div>
   </section>
 
+  <!-- PC -->
+  <section id="pc">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">PC(Windows) 버전</span>
+        <h2>책상에서는 넓은 화면으로,<br />폰과 같은 계정으로.</h2>
+      </div>
+      <div class="aud-grid">
+        <div class="aud-card"><div class="n">한 화면에</div><p>고객·검색 화면이 2단으로 열립니다. 왼쪽 목록을 두고 오른쪽에서 바로 내용을 보니 고객을 오갈 때 화면이 바뀌지 않습니다.</p></div>
+        <div class="aud-card"><div class="n">키보드로</div><p>긴 상담 메모를 키보드로 입력하고, 엑셀 등록·저장, PDF 명식지, 백업 파일을 익숙한 파일 창으로 엽니다.</p></div>
+        <div class="aud-card"><div class="n">자료 옮기기</div><p>폰에서 백업하고 PC에서 복원하면 고객 자료가 그대로 옮겨집니다. 복원 직전에 현재 자료를 자동으로 한 번 저장하므로 되돌릴 수 있습니다.</p></div>
+      </div>
+      <p class="note" style="margin-top:22px">Windows 10/11 · Microsoft Store에서 설치 · PRO는 폰에서 결제한 계정으로 로그인하면 그대로 적용 · 실시간 자동 동기화는 아직 없습니다 — 자세한 방법은 <a href="guide.html#part-5">사용 가이드 5부</a></p>
+    </div>
+  </section>
+
   <!-- PRICING -->
   <section id="pricing">
     <div class="wrap">
@@ -331,6 +353,10 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.6 2.3c-.3.3-.5.7-.5 1.3v16.8c0 .6.2 1 .5 1.3l.1.1L13 12.1v-.2L3.7 2.2z"/><path fill="currentColor" d="M16.3 15.4 13 12.1v-.2l3.3-3.3.1.1 3.9 2.2c1.1.6 1.1 1.7 0 2.3z" opacity=".85"/><path fill="currentColor" d="M16.4 15.5 13 12 3.6 21.7c.4.4 1 .4 1.7 0z" opacity=".7"/><path fill="currentColor" d="M16.4 8.5 5.3 2.3c-.7-.4-1.3-.4-1.7 0L13 12z" opacity=".95"/></svg>
           <span class="st"><small>Google Play</small><strong>다운로드</strong></span>
         </a>
+        <a class="store-btn" href="https://apps.microsoft.com/detail/9PLB0QLL22LK" target="_blank" rel="noopener" aria-label="Microsoft Store에서 스마트도사 PC 버전 다운로드">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.6 11 3.5v8H3zM12.5 3.3 21 2v9.5h-8.5zM3 12.5h8v8L3 19.4zM12.5 12.5H21V22l-8.5-1.3z"/></svg>
+          <span class="st"><small>Microsoft Store</small><strong>PC 버전</strong></span>
+        </a>
       </div>
       <p class="note">통합검색 포함 모든 기능 — 고객 30명까지 무료</p>
     </div>
@@ -353,9 +379,9 @@
     </div>
     <div class="foot-bottom">
       <span>© 2026 주식회사 바이코드 (By Code Co.) · support@bycode.kr</span>
-      <span>명리사의 모바일 상담 운영 도구</span>
+      <span>명리사의 상담 운영 도구 · iOS · Android · Windows PC</span>
     </div>
-    <p class="tm">App Store는 Apple Inc.의, Google Play는 Google LLC의 상표입니다.</p>
+    <p class="tm">App Store는 Apple Inc.의, Google Play는 Google LLC의, Microsoft Store와 Windows는 Microsoft Corporation의 상표입니다.</p>
   </div>
 </footer>
 
