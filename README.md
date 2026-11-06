@@ -14,6 +14,7 @@ robots.txt
 assets/
   icon.png        # 앱 아이콘 (saju_code/store/icon/icon-512.png 재활용)
   og-image.png    # 소셜 공유 이미지 (store/graphics/feature-graphic 재활용)
+  smartdosa-pc-guide.pdf  # PC(Windows) 사용 안내서 — 랜딩 #pc 섹션·guide.html 5부에서 링크 (파일명은 ASCII 유지)
 ```
 
 ## 배포 (GitHub Pages)
